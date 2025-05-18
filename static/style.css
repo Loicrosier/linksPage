@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    flex-direction: column;
+    background-image: url('bob.png');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100vw;
+    height: 100vh;
+}
+.add-link {
+    position: fixed;
+    top: 2%;
+    right: 2%;
+
+    i {
+        font-size: 4vh;
+    }
+}
+
+.form-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: blue;
+    position: fixed;
+    width: 90vw;
+    left: 5vw;
+    top: 20vh;
+    padding-bottom: 2vh;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4vh;
+        width: 90vw;
+    }
+}
+
+.container-link-input {
+    padding: 2vw;
+    display: flex;
+    gap: 2vw;
+}
+
+.close-form {
+    position: fixed;
+    right: 5vw;
+}
+
+input[type="text"] {
+    width: 60vw;
+    height: 5vh;
+    border: none;
+    border-radius: 12px;
+}
+
+input.input-name {
+    width: 85vw;
+}
+
+input.password {
+    width: 85vw;
+}
+
+
+select#platform {
+    height: 5vh;
+    border-radius: 12px;
+
+}
+
+input[type="submit"] {
+    width: 50vw;
+}
+
+
+
+
+.box-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 80vh;
+    width: 90vw;
+    gap: 2vh;
+}
+
+/* carte des links */
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3vh;
+    box-shadow: 4px 4px 45px;
+    width: 90vw;
+    height: 10vh;
+    border-radius: 8px;
+    gap: 3vw;
+
+
+}
+
+.link-content {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2vw;
+}
+
+.link-date {
+    position: relative;
+}
+
+
+

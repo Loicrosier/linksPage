@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf_8"/>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <title>Bob Link</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>BobLink</h1>
+            {% if admin %}
+                <div class="add-link">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            {% endif %}
+            <div class="box-link">
+                {% for k, link in links.items(): %}
+                    <a href="{{link['link']}}">
+                        <div class="link">
+                            <div class="link-content">
+                                <p>{{k}}</p>
+                                <i class="{{icons[link['platform']]}}"></i>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <script src="{{url_for('static', filename='main.js')}}"></script>
+    </body>
+
+</html>
