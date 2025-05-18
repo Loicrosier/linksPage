@@ -1,13 +1,21 @@
-from flask import Flask, redirect, render_template, url_for, request
+from flask import Flask, redirect, render_template, url_for, request, jsonify
+from models import db, Link
 import json
-import datetime
 import os
 from dotenv import load_dotenv
 
 app = Flask(__name__)
-
 # charge les var environnement
 load_dotenv()
+
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db.init_app(app)
+
+with app.app_context():
+    db.create_all()
+
 
 icons = {
     "snapchat": 'fa-brands fa-snapchat',
@@ -15,43 +23,44 @@ icons = {
     "whatsapp": "fa-brands fa-whatsapp"
 }
 
-
-def read_json():
-    with open('links.json', 'r') as f:
-       data = json.load(f)
-    return data
-
-def write_json(data):
-    with open('links.json', 'w') as f:
-       json.dump(data, f, indent=4)
-    return
-
 @app.route('/', methods=['GET'])
 def main():
     admin = request.args.get('admin')
-    links = read_json()['links']
-    return render_template('main.html', links=links, admin=admin, icons=icons)
+    links = Link.query.all()
+    return render_template('main.html', links=links, adminid=os.getenv('ADMIN_ID'), admin=admin, icons=icons)
 
 @app.route('/create_link', methods=['POST'])
 def create_link():
     name = request.form.get('name')
-    json_links = read_json()
+    # json_links = read_json()
     link = request.form.get('link')
     platform = request.form.get('platform')
     password = request.form.get('password')
     if os.getenv('ADMIN_PASSWORD') == password:
+         link = Link(name=name, link=link, platform=platform)
+         db.session.add(link)
+         db.session.commit()
 
-        json_links['links'].update({name: {"link": link, "platform": platform, "date": str(datetime.datetime.now())}})
+        # json_links['links'].update({name: {"link": link, "platform": platform, "date": str(datetime.datetime.now())}})
 
-        write_json(json_links)
+        # write_json(json_links)
     return redirect('/')
 
 @app.route('/del_link/<link>', methods=['DELETE'])
 def del_link(link):
-    # if os.getenv('ADMIN_PASSWORD') == 
-        json_links = read_json()
-        del json_links['links'][link]
-        write_json(json_links)
+    password = request.json['password']
+    
+    if os.getenv('ADMIN_PASSWORD') == password:
+        link = Link.query.get(int(link))
+        if link:
+            db.session.delete(link)
+            db.session.commit()
+            return jsonify({"resp": 'deleted'})
+        else:
+            return jsonify({"resp": 'erreur pendant la suppression !'})
+
+    return jsonify({ "resp": 'mauvais mot de passe !'})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
