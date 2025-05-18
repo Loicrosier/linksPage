@@ -19,7 +19,9 @@
                 {% for link in links: %}
                     <a href="{{link['link']}}" class="href-{{link.id}}">
                         <div class="link link-{{link.id}}">
-                            <div class="del-link link-{{link.id}}" ><i class="fa-solid fa-trash" data-link="{{link.id}}"></i></div>
+                            {%if admin == adminid: %}
+                                <div class="del-link link-{{link.id}}" ><i class="fa-solid fa-trash" data-link="{{link.id}}"></i></div>
+                            {% endif %}
                             <div class="link-content">
                                 <p>{{link.name}}</p>
                                 <i class="{{icons[link.platform]}}"></i>
