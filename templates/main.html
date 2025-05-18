@@ -10,18 +10,19 @@
     <body>
         <div class="container">
             <h1>BobLink</h1>
-            {% if admin %}
+            {% if admin == adminid %}
                 <div class="add-link">
                     <i class="fa-solid fa-plus"></i>
                 </div>
             {% endif %}
             <div class="box-link">
-                {% for k, link in links.items(): %}
-                    <a href="{{link['link']}}">
-                        <div class="link">
+                {% for link in links: %}
+                    <a href="{{link['link']}}" class="href-{{link.id}}">
+                        <div class="link link-{{link.id}}">
+                            <div class="del-link link-{{link.id}}" ><i class="fa-solid fa-trash" data-link="{{link.id}}"></i></div>
                             <div class="link-content">
-                                <p>{{k}}</p>
-                                <i class="{{icons[link['platform']]}}"></i>
+                                <p>{{link.name}}</p>
+                                <i class="{{icons[link.platform]}}"></i>
                             </div>
                         </div>
                     </a>
