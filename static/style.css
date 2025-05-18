@@ -36,6 +36,28 @@ a {
     }
 }
 
+.del-link {
+    position: absolute;
+    top: 1vh;
+    right: 2vw;
+}
+
+
+/* BUTTON */
+.conf-del-btn {
+    width: 20vw;
+    font-size: 2vh !important;
+}
+
+/* container de la confirmation de suppression */
+.del-container {
+    position: fixed;
+    top: 20vh;
+    display: flex;
+    background-color: black;
+    width: 10vw;
+}
+
 .form-link {
     display: flex;
     flex-direction: column;
@@ -108,6 +130,7 @@ input[type="submit"] {
 
 /* carte des links */
 .link {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,6 +141,19 @@ input[type="submit"] {
     border-radius: 8px;
     gap: 3vw;
 
+
+}
+
+/* carte link arriere */
+.link-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 4px 4px 45px;
+    width: 90vw;
+    height: 10vh;
+    border-radius: 8px;
+    gap: 3vw;
 
 }
 
