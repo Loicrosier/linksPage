@@ -34,10 +34,7 @@ if (addBtn) {
             document.querySelector('.container').classList.remove('blur')
                 document.querySelector('.form-link').remove()
             })
-            // if (document.querySelector('.close-form')) {
-    
-            // }
-        
+      
         })
 
 }
@@ -52,8 +49,6 @@ delLinkBtns.forEach((delLinkBtn) => {
     const linkId = e.target.dataset.link
     document.querySelector(`.href-${linkId}`).removeAttribute('href')
     
-    // const delNotice = document.createElement('div')
-    // delNotice.classList.add('del-container')
     const linkCard = document.querySelector(`.link-${linkId}`)
     linkCard.outerHTML = `<div class='link-back'>
                                 <form>
