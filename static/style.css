@@ -16,6 +16,9 @@ a {
     color: inherit;
 }
 
+.blur {
+    filter: blur(1.5rem);
+}
 .container {
     flex-direction: column;
     background-image: url('bob.png');
@@ -62,12 +65,14 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: blue;
-    position: fixed;
+    position: absolute;
     width: 90vw;
     left: 5vw;
     top: 20vh;
     padding-bottom: 2vh;
+    border-radius: 12px;
+    box-shadow: 4px 4px 45px;
+
 
     form {
         display: flex;
@@ -85,8 +90,9 @@ a {
 }
 
 .close-form {
-    position: fixed;
-    right: 5vw;
+    position: absolute;
+    right: 2vw;
+    top: 1vh;
 }
 
 input[type="text"] {
@@ -119,6 +125,8 @@ input[type="submit"] {
 
 
 .box-link {
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,10 +172,3 @@ input[type="submit"] {
     justify-content: center;
     gap: 2vw;
 }
-
-.link-date {
-    position: relative;
-}
-
-
-
