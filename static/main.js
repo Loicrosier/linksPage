@@ -22,7 +22,7 @@ if (addBtn) {
                                                 </select>
                                             </div>
                                             <input type='text' name="password" class="password" placeholder='mot de passe' required=true></input>
-                                            <input type='submit' class='submit'></input>
+                                            <input type='submit' class='submit' value='Ajouter'></input>
                                         </form>
                                       `
             document.body.appendChild(formContainer)
@@ -34,7 +34,10 @@ if (addBtn) {
             document.querySelector('.container').classList.remove('blur')
                 document.querySelector('.form-link').remove()
             })
-      
+            // if (document.querySelector('.close-form')) {
+    
+            // }
+        
         })
 
 }
@@ -49,6 +52,8 @@ delLinkBtns.forEach((delLinkBtn) => {
     const linkId = e.target.dataset.link
     document.querySelector(`.href-${linkId}`).removeAttribute('href')
     
+    // const delNotice = document.createElement('div')
+    // delNotice.classList.add('del-container')
     const linkCard = document.querySelector(`.link-${linkId}`)
     linkCard.outerHTML = `<div class='link-back'>
                                 <form>
