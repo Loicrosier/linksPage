@@ -125,6 +125,7 @@ input[type="submit"] {
 
 
 .box-link {
+    padding: 2vh;
     overflow-y: auto;
     overflow-x: hidden;
     display: flex;
@@ -143,7 +144,7 @@ input[type="submit"] {
     justify-content: center;
     align-items: center;
     font-size: 3vh;
-    box-shadow: 4px 4px 45px;
+    box-shadow: 2px 2px 25px;
     width: 90vw;
     height: 10vh;
     border-radius: 8px;
@@ -172,3 +173,8 @@ input[type="submit"] {
     justify-content: center;
     gap: 2vw;
 }
+
+
+
+
+
