@@ -100,6 +100,14 @@ input[type="text"] {
     height: 5vh;
     border: none;
     border-radius: 12px;
+    font-size: 2vh;
+    color: black;
+}
+
+input[type="text"]::placeholder {
+    padding-left: 1.5vw;
+    color: black;
+    /* font-size: 2vh; */
 }
 
 input.input-name {
@@ -118,7 +126,12 @@ select#platform {
 }
 
 input[type="submit"] {
+    background-color: green;
+    color: white;
     width: 50vw;
+    height: 5vh;
+    border-radius: 12px;
+    border: none;
 }
 
 
