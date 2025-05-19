@@ -32,7 +32,6 @@ def main():
 @app.route('/create_link', methods=['POST'])
 def create_link():
     name = request.form.get('name')
-    # json_links = read_json()
     link = request.form.get('link')
     platform = request.form.get('platform')
     password = request.form.get('password')
@@ -40,10 +39,6 @@ def create_link():
          link = Link(name=name, link=link, platform=platform)
          db.session.add(link)
          db.session.commit()
-
-        # json_links['links'].update({name: {"link": link, "platform": platform, "date": str(datetime.datetime.now())}})
-
-        # write_json(json_links)
     return redirect('/')
 
 @app.route('/del_link/<link>', methods=['DELETE'])
